@@ -31,7 +31,7 @@ export const receive_error = () => {
  *  Reducers are pure functions, hence async operations are out. 
  *  Actions are just plain old objects.
  *  Dispatch accepts an action object as its parameter.
- *  What Thunk does is ay that if an action creator returns a function instead of an object then it simply executes that returning function.
+ *  What Thunk does is insist that if an action creator returns a function instead of an object then it simply executes that returning function.
  * 
  *  The returning function can accept two parameters: dispatch and getState
  * 
@@ -43,7 +43,7 @@ export const thunk_action_creator = username => {
     const  user = username.replace(/\s/g, "")
     store.dispatch(fetch_post())
     return function(dispatch, getState) {
-        return fetch (`https://api.github.coom/users/${user}`)
+        return fetch (`https://api.github.com/users/${user}`)
             .then(data => data.json())
             .then(data => {
                 if (data.message === "Not Found") {

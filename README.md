@@ -1,3 +1,12 @@
+# redux-thunk
+Following tutorial on Redux Thunk located at https://codeburst.io/understanding-redux-thunk-6dbae0241817
+
+A Thunk allows you to add middleware (applications) to actions, and then take the data returned from those actions as if it's come from the store.
+
+Good tutorial, although could use some copyediting.
+
+<hr>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
