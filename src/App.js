@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react"
+import { connect } from "react-redux"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  handleSubmit = e => {
+    e.preventDefault()
+    const username = this.getUsername.value
+    //console.warn("AHA!")
+    console.log(username)
+  }
+  render() {
+    console.log(this.props.data)
+    return (
+      <div className="container">
+        <form onSubmit={this.handleSubmit} className="form">
+          <h2 className="title">GitHub User Finder</h2>
+          <input
+            type="text"
+            placeholder="Enter Github Username"
+            required
+            ref={input => (this.getUsername = input)}
+          />
+          <button className="button">Find That Dev!</button>
+        </form>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    data: state
+  }
+}
+
+export default connect(mapStateToProps)(App);
